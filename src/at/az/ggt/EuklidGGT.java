@@ -1,51 +1,52 @@
 package at.az.ggt;
 
+import at.az.Util;
+
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 public class EuklidGGT {
 
-    private int a;
-    private int b;
-    private int r;
-    private int cancelAfterXSteps;
+    private BigInteger a;
+    private BigInteger b;
+    private BigInteger r;
+    private BigInteger cancelAfterXSteps;
 
-    public EuklidGGT(int a, int b, int cancelAfterXSteps) {
+    public EuklidGGT(BigInteger a, BigInteger b, BigInteger cancelAfterXSteps) {
         this.a = a;
         this.b = b;
         this.cancelAfterXSteps = cancelAfterXSteps;
     }
 
-    public int calcGGT(ArrayList<EUklidGGTStruct> euklidStructs){
-        int a = Math.max(this.a, this.b);
-        int b = Math.min(this.a, this.b);
-        int r = -1;
+    public BigInteger calcGGT(ArrayList<EuklidGGTStruct> euklidStructs){
+        BigInteger r = new BigInteger("-1");
 
-        int i = 0;
-        for(; i< cancelAfterXSteps; i++){
-            int prevR = r;
+        BigInteger i = new BigInteger("0");
+        for(; i.compareTo(cancelAfterXSteps) < 0; i = i.add(new BigInteger("1"))){
+            BigInteger prevR = r;
 
-            r = a % b;
+            r = a.mod(b);
 
-            EUklidGGTStruct euklidStruct = new EUklidGGTStruct();
+            EuklidGGTStruct euklidStruct = new EuklidGGTStruct();
             euklidStruct.setA(a);
             euklidStruct.setB(b);
-            euklidStruct.setQ(a/b);
+            euklidStruct.setQ(a.divide(b));
             euklidStruct.setR(r);
             euklidStructs.add(euklidStruct);
 
             a = b;
             b = r;
 
-            if (r <= 0){
+            if (r.compareTo(Util.READONLY_BIGINT_ZERO) <= 0){
                 return prevR;
             }
         }
 
-        if (i >= 1000){
+        if (i.compareTo(cancelAfterXSteps) > 0){
             System.err.println("CANCELLED AFTER MAX STEPS FOR EUKLID GGT");
         }
 
-        return 1;
+        return new BigInteger("1");
     }
 
     private static void printBar() {
@@ -59,13 +60,13 @@ public class EuklidGGT {
      * See: <a href="https://www.youtube.com/watch?v=nD6psV2vkRU">Christian Spannagel: Erweiterter Euklidischer Algorithmus Teil 3</a>
      * @param str structure list
      */
-    public void calcReverse(ArrayList<EUklidGGTStruct> str) {
+    public void calcReverse(ArrayList<EuklidGGTStruct> str) {
         if (str == null || str.size() == 0){
             throw new IllegalArgumentException("NO STRUCTS OR EMPTY STRUCT RECEIVED IN PARAMETER");
         }
 
-        str.get(str.size()-1).setX(0);
-        str.get(str.size()-1).setY(1);
+        str.get(str.size()-1).setX(new BigInteger("0"));
+        str.get(str.size()-1).setY(new BigInteger("1"));
 
         if (str.size() == 1){
             return;
@@ -77,8 +78,8 @@ public class EuklidGGT {
             );
 
             str.get(i).setY(
-                    str.get(i+1).getX() - str.get(i).getQ() * str.get(i+1).getY() // y = x_i+1 - q_i * y_i+1
-            );
+                    str.get(i+1).getX().subtract(str.get(i).getQ().multiply(str.get(i+1).getY()))
+            ); // y = x_i+1 - q_i * y_i+1
         }
     }
 }

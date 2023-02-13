@@ -1,8 +1,9 @@
 package at.az;
 
-import at.az.ggt.EUklidGGTStruct;
+import at.az.ggt.EuklidGGTStruct;
 import at.az.ggt.EuklidGGT;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 /**
@@ -37,19 +38,20 @@ import java.util.ArrayList;
  */
 public class Main {
     public static void main(String[] args) {
-//        EuklidGGT euklidGGT = new EuklidGGT(21, 34, 1000); // fibonacci numbers (remind the rabbits!)
-//        EuklidGGT euklidGGT = new EuklidGGT(128, 34, 1000); // example: https://www.youtube.com/watch?v=QORmBQo8-j0
-//        EuklidGGT euklidGGT = new EuklidGGT(2, 4, 1000); // example: https://www.youtube.com/watch?v=QORmBQo8-j0
+//        EuklidGGT euklidGGT = new EuklidGGT(new BigInteger("21"), new BigInteger("34"), new BigInteger("1000")); // fibonacci numbers (remind the rabbits!)
+//        EuklidGGT euklidGGT = new EuklidGGT(new BigInteger("128"), new BigInteger("34"), new BigInteger("1000")); // example: https://www.youtube.com/watch?v=QORmBQo8-j0
+//        EuklidGGT euklidGGT = new EuklidGGT(new BigInteger("2"), new BigInteger("4"), new BigInteger("1000")); // example: https://www.youtube.com/watch?v=QORmBQo8-j0
 
-        EuklidGGT euklidGGT = new EuklidGGT(47, 60, 1000); // example: https://www.youtube.com/watch?v=QORmBQo8-j0
+        EuklidGGT euklidGGT = new EuklidGGT(new BigInteger("47"), new BigInteger("60"), new BigInteger("1000"));
+        // example: https://www.youtube.com/watch?v=QORmBQo8-j0
 
 
-        ArrayList<EUklidGGTStruct> euklidStructs = new ArrayList<>();
+        ArrayList<EuklidGGTStruct> euklidStructs = new ArrayList<>();
 
         long t0 = System.currentTimeMillis();
 
         // --- STEP 1: CALCULATE GGT
-        int ggt = euklidGGT.calcGGT(euklidStructs);
+        BigInteger ggt = euklidGGT.calcGGT(euklidStructs);
 
         long t1 = System.currentTimeMillis();
 
@@ -62,13 +64,13 @@ public class Main {
 
         printGGT(ggt);
 
-        EUklidGGTStruct eUklidGGTStruct0 = euklidStructs.get(0);
+        EuklidGGTStruct euklidGGTStruct0 = euklidStructs.get(0);
         printDiophant(
                 ggt,
-                eUklidGGTStruct0.getX(),
-                eUklidGGTStruct0.getA(),
-                eUklidGGTStruct0.getY(),
-                eUklidGGTStruct0.getB()
+                euklidGGTStruct0.getX(),
+                euklidGGTStruct0.getA(),
+                euklidGGTStruct0.getY(),
+                euklidGGTStruct0.getB()
         );
 
         printTimeConsumption(t0, t1, t2);
@@ -87,23 +89,23 @@ public class Main {
     /**
      * Print GGT(a, b) as diophantic linear equation.
      */
-    private static void printDiophant(int ggt, int x, int a, int y, int b) {
+    private static void printDiophant(BigInteger ggt, BigInteger x, BigInteger a, BigInteger y, BigInteger b) {
         System.out.println();
         System.out.printf("GGT(%d,%d) = %d = (%d) * %d + (%d) * %d%n", a, b, ggt, x, a, y, b);
     }
 
-    private static void printGGT(int ggt) {
+    private static void printGGT(BigInteger ggt) {
         System.out.println();
         System.out.printf("GGT --> %d%n", ggt);
     }
 
-    private static void printEuklid(ArrayList<EUklidGGTStruct> euklidStructs) {
+    private static void printEuklid(ArrayList<EuklidGGTStruct> euklidStructs) {
         System.out.printf("|%20s|%20s|%20s|%20s|%20s|%20s%n", "a", "b", "q", "r", "x", "y");
         for (int i = 0; i < 129; i++) {
             System.out.print("-");
         }
         System.out.println();
-        for (EUklidGGTStruct euklidStruct : euklidStructs) {
+        for (EuklidGGTStruct euklidStruct : euklidStructs) {
             System.out.printf(
                     "|%20d|%20d|%20d|%20d|%20d|%20d|%n",
                     euklidStruct.getA(),
