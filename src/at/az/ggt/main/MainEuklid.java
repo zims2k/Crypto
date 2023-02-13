@@ -1,7 +1,7 @@
-package at.az;
+package at.az.ggt.main;
 
-import at.az.ggt.EuklidGGTStruct;
-import at.az.ggt.EuklidGGT;
+import at.az.ggt.algo.EuklidGGTStruct;
+import at.az.ggt.algo.EuklidGGT;
 
 import java.math.BigInteger;
 import java.util.ArrayList;

@@ -1,4 +1,6 @@
-package at.az;
+package at.az.ggt.main;
+
+import at.az.ggt.algo.Utils;
 
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;

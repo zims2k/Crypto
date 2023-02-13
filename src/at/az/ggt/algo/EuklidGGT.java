@@ -1,4 +1,4 @@
-package at.az.ggt;
+package at.az.ggt.algo;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
