@@ -31,12 +31,12 @@ import java.util.ArrayList;
  *         </li>
  *         <li>
  *             Calculate private key: Determine a &quot;d&quot; with e * d = 1 mod phi(N). This is the part that the
- *             EEA comes into place! That means: Apply EEA with a=e and b=phi(N).
+ *             EEA comes into place! That means: Apply EEA with a=e and b=phi(N). The private key is then: {d,N}.
  *         </li>
  *     </ol>
  * </p>
  */
-public class Main {
+public class MainEuklid {
 
     private static final BigInteger CANCEL_AFTER_X_STEPS = new BigInteger("1000");
 
@@ -105,7 +105,7 @@ public class Main {
 
     private static void printEuklid(ArrayList<EuklidGGTStruct> euklidStructs) {
         System.out.printf("|%40s|%40s|%40s|%40s|%40s|%40s%n", "a", "b", "q", "r", "x", "y");
-        for (int i = 0; i < 129; i++) {
+        for (int i = 0; i < 247; i++) {
             System.out.print("-");
         }
         System.out.println();

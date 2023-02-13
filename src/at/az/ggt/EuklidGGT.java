@@ -1,7 +1,5 @@
 package at.az.ggt;
 
-import at.az.Util;
-
 import java.math.BigInteger;
 import java.util.ArrayList;
 
@@ -18,8 +16,8 @@ public class EuklidGGT {
     }
 
     public BigInteger calcGGT(ArrayList<EuklidGGTStruct> euklidStructs){
-        BigInteger a = this.a.max(b);
-        BigInteger b = this.a.min(this.b);
+        BigInteger a = this.a;
+        BigInteger b = this.b;
         BigInteger r = new BigInteger("-1");
 
         BigInteger i = new BigInteger("0");
@@ -38,7 +36,7 @@ public class EuklidGGT {
             a = b;
             b = r;
 
-            if (r.compareTo(Util.READONLY_BIGINT_ZERO) <= 0){
+            if (r.compareTo(BigInteger.ZERO) <= 0){
                 return prevR;
             }
         }
