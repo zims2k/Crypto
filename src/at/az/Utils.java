@@ -27,6 +27,12 @@ public class Utils {
             tries++;
 
             probableE = new BigInteger(bitLength, random);
+            if (probableE.compareTo(BigInteger.ONE)<=0 || probableE.compareTo(phiN) >= 0){
+                if (debug){
+                    System.out.println(">> DEBUG: probable e is 1 or >= phi(N)!! Must find a new e!");
+                    continue;
+                }
+            }
 
             EuklidGGT euklidGGT = new EuklidGGT(probableE, phiN, CANCEL_AFTER_X_STEPS);
             ggT = euklidGGT.calcGGT(new ArrayList<>());
