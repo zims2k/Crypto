@@ -35,6 +35,7 @@ public class MainCalcRSASimple {
         euklidGGT.calcReverse(euklidStructs);
 
         BigInteger d = euklidStructs.get(0).getX();
+
         if (d.compareTo(BigInteger.ZERO) < 0){
             BigInteger newD = d.mod(phiN);
             System.out.printf("Eliminating negative d and reassign it with mod(phi(N)): %s   -->   %s%n", d, newD);
