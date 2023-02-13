@@ -35,7 +35,19 @@ public class MainCalcRSASimple {
         euklidGGT.calcReverse(euklidStructs);
 
         BigInteger d = euklidStructs.get(0).getX();
+        if (d.compareTo(BigInteger.ZERO) < 0){
+            BigInteger newD = d.mod(phiN);
+            System.out.printf("Eliminating negative d and reassign it with mod(phi(N)): %s   -->   %s%n", d, newD);
+            d = newD;
+        }
 
+        System.out.printf("p=     %s%n", p);
+        System.out.printf("q=     %s%n", q);
+        System.out.printf("N=     %s%n", q.multiply(q));
+        System.out.printf("d=     %s%n", d);
+        System.out.printf("e=     %s%n", e);
+        System.out.printf("phi(N)=%s%n", phiN);
+        System.out.println("-->");
         System.out.printf("Public key {e,N} = {%d,%d}%n", e, n);
         System.out.printf("Private key {d,N} = {%d,%d}%n", d, n);
     }
