@@ -16,6 +16,10 @@ public class Utils {
     }
 
     public static BigInteger deriveE(BigInteger phiN, boolean debug) throws NoSuchAlgorithmException {
+        if (debug){
+            System.out.printf(">> DEBUG: Finding an e with 1 < e < phi(N) and ggT(e, phi(n)) = 1, whereby phi(N)=%s%n", phiN);
+        }
+
         int bitLength = phiN.bitLength();
         SecureRandom random = SecureRandom.getInstanceStrong();
 
@@ -29,7 +33,7 @@ public class Utils {
             probableE = new BigInteger(bitLength, random);
             if (probableE.compareTo(BigInteger.ONE)<=0 || probableE.compareTo(phiN) >= 0){
                 if (debug){
-                    System.out.println(">> DEBUG: probable e is 1 or >= phi(N)!! Must find a new e!");
+                    System.out.printf(">> DEBUG: probable e is 1 or >= phi(N)!! Must find a new e! Whereby e=%s%n", probableE);
                     continue;
                 }
             }
@@ -38,7 +42,7 @@ public class Utils {
             ggT = euklidGGT.calcGGT(new ArrayList<>());
 
             if (debug){
-                System.out.printf(">> DEBUG: ggt(%s,%s)=%s%n", probableE, phiN, ggT);
+                System.out.printf(">> DEBUG: ggt(e,phi(N))=%s, whereby e=%s%n", ggT, probableE);
             }
         }
 
