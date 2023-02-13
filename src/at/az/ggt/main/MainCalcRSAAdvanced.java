@@ -38,6 +38,16 @@ import java.security.SecureRandom;
 public class MainCalcRSAAdvanced {
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
+        int bitLengthPrime = 1024;
+
+        if (args.length == 1){
+            try {
+                bitLengthPrime = Integer.parseInt(args[0]);
+            } catch (NumberFormatException nfe){
+                System.err.printf("Invalid bit length!! '%s'. Using default: %d%n", nfe.getMessage(), bitLengthPrime);
+            }
+        }
+
         long tBegin0 = System.currentTimeMillis();
 
         // Call this, in order to get the RNG initialized and measure times more accurately below.
@@ -46,9 +56,9 @@ public class MainCalcRSAAdvanced {
 
         long tBegin = System.currentTimeMillis();
 
-        BigInteger p = BigInteger.probablePrime(128, new SecureRandom());
+        BigInteger p = BigInteger.probablePrime(bitLengthPrime, new SecureRandom());
         long t1 = System.currentTimeMillis();
-        BigInteger q = BigInteger.probablePrime(128, new SecureRandom());
+        BigInteger q = BigInteger.probablePrime(bitLengthPrime, new SecureRandom());
         long t2 = System.currentTimeMillis();
         BigInteger phiN = Utils.getPhiN(p, q);
 
