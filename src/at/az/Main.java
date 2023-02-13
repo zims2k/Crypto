@@ -104,14 +104,14 @@ public class Main {
     }
 
     private static void printEuklid(ArrayList<EuklidGGTStruct> euklidStructs) {
-        System.out.printf("|%20s|%20s|%20s|%20s|%20s|%20s%n", "a", "b", "q", "r", "x", "y");
+        System.out.printf("|%40s|%40s|%40s|%40s|%40s|%40s%n", "a", "b", "q", "r", "x", "y");
         for (int i = 0; i < 129; i++) {
             System.out.print("-");
         }
         System.out.println();
         for (EuklidGGTStruct euklidStruct : euklidStructs) {
             System.out.printf(
-                    "|%20d|%20d|%20d|%20d|%20d|%20d|%n",
+                    "|%40d|%40d|%40d|%40d|%40d|%40d|%n",
                     euklidStruct.getA(),
                     euklidStruct.getB(),
                     euklidStruct.getQ(),
