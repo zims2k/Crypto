@@ -7,7 +7,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 
 /**
- * Calculate private key {d,N}. No prime checks are made inside this main().
+ * Calculate RSA keys. No prime checks are made inside this main(). Pass p, q and e and get the keys.
  */
 public class MainCalcRSASimple {
 
