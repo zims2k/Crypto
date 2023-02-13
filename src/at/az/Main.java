@@ -37,17 +37,18 @@ import java.util.ArrayList;
  * </p>
  */
 public class Main {
+
+    private static final BigInteger CANCEL_AFTER_X_STEPS = new BigInteger("1000");
+
     public static void main(String[] args) {
-//        EuklidGGT euklidGGT = new EuklidGGT(new BigInteger("21"), new BigInteger("34"), new BigInteger("1000")); // fibonacci numbers (remind the rabbits!)
-//        EuklidGGT euklidGGT = new EuklidGGT(new BigInteger("128"), new BigInteger("34"), new BigInteger("1000")); // example: https://www.youtube.com/watch?v=QORmBQo8-j0
-//        EuklidGGT euklidGGT = new EuklidGGT(new BigInteger("2"), new BigInteger("4"), new BigInteger("1000")); // example: https://www.youtube.com/watch?v=QORmBQo8-j0
+        if (args.length != 2){
+            System.out.println("Args: [0]: a, [1]: b");
+            System.exit(-1);
+        }
 
-//        EuklidGGT euklidGGT = new EuklidGGT(new BigInteger("47"), new BigInteger("60"), new BigInteger("1000"));
 
-        EuklidGGT euklidGGT = new EuklidGGT(new BigInteger("148894445742041325547806458472397916603026273992795324185271289425213239361064475310309971132180337174752834401423587560"), new BigInteger("10"), new BigInteger("1000"));
-//        EuklidGGT euklidGGT = new EuklidGGT(new BigInteger("3"), new BigInteger("11"), new BigInteger("1000"));
-        // example: https://www.youtube.com/watch?v=QORmBQo8-j0
 
+        EuklidGGT euklidGGT = new EuklidGGT(new BigInteger(args[0]), new BigInteger(args[1]), CANCEL_AFTER_X_STEPS); // example: https://www.youtube.com/watch?v=QORmBQo8-j0
 
         ArrayList<EuklidGGTStruct> euklidStructs = new ArrayList<>();
 
