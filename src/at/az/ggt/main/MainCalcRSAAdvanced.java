@@ -57,13 +57,13 @@ public class MainCalcRSAAdvanced {
         long tEnd = System.currentTimeMillis();
 
         System.out.println();
-        System.out.println("Statistics:");
-        System.out.println("-----------");
+        System.out.println("Statistics (public key generation):");
+        System.out.println("-----------------------------------");
         System.out.printf("Finding p took %dms%n", (t1-tBegin));
         System.out.printf("Finding q took %dms%n", (t2-t1));
         System.out.printf("Finding e took %dms%n", (tEnd-t3));
-        System.out.printf("Total time elapsed for key generation (without RNG initialization: %dms%n", (tEnd-tBegin));
-        System.out.printf("Total time elapsed for key generation (including RNG initialization): %dms%n", (tEnd-tBegin0 - ((t1-tBegin + t2-t1)/2) ));
+        System.out.printf("Total time elapsed for public key generation (without RNG initialization: %dms%n", (tEnd-tBegin));
+        System.out.printf("Total time elapsed for public key generation (including RNG initialization): %dms%n", (tEnd-tBegin0 - ((t1-tBegin + t2-t1)/2) ));
         System.out.println();
         System.out.println();
 
