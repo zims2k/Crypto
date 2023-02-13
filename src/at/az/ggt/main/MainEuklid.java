@@ -19,8 +19,6 @@ public class MainEuklid {
             System.exit(-1);
         }
 
-
-
         EuklidGGT euklidGGT = new EuklidGGT(new BigInteger(args[0]), new BigInteger(args[1]), CANCEL_AFTER_X_STEPS); // example: https://www.youtube.com/watch?v=QORmBQo8-j0
 
         ArrayList<EuklidGGTStruct> euklidStructs = new ArrayList<>();
