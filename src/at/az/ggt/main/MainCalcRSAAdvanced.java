@@ -9,7 +9,7 @@ import java.security.SecureRandom;
 /**
  * Calculate RSA keys without external input.
  */
-public class MainCalcRSAAdvanced1 {
+public class MainCalcRSAAdvanced {
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
         long t1 = System.currentTimeMillis();
