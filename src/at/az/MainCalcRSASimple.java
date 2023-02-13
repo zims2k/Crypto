@@ -25,7 +25,7 @@ public class MainCalcRSASimple {
 
         BigInteger n = p.multiply(q);
 
-        BigInteger phiN = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
+        BigInteger phiN = Utils.getPhiN(p, q);
 
         EuklidGGT euklidGGT = new EuklidGGT(e, phiN, CANCEL_AFTER_X_STEPS);
 
