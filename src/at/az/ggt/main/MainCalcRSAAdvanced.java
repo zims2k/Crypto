@@ -7,7 +7,33 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
 /**
- * Calculate RSA keys without external input.
+ * <p>
+ *     Calculate RSA keys without external input.
+ * </p>
+ * <p>
+ *     In general, RSA contains the following steps:
+ *     <ol>
+ *         <li>
+ *             Evaluate 2 very very high prime numbers
+ *         </li>
+ *         <li>
+ *             Calculate RSA module (N=p*q)
+ *         </li>
+ *         <li>
+ *             Determine phi(N) = (p-1)*(q-1)
+ *         </li>
+ *         <li>
+ *             Choose a random number &quot;e&quot; that satisfies 1<e<phi(N) and GGT(e,phi(N))=1
+ *         </li>
+ *         <li>
+ *             public key is: {e,N}
+ *         </li>
+ *         <li>
+ *             Calculate private key: Determine a &quot;d&quot; with e * d = 1 mod phi(N). This is the part that the
+ *             EEA comes into place! That means: Apply EEA with a=e and b=phi(N). The private key is then: {d,N}.
+ *         </li>
+ *     </ol>
+ * </p>
  */
 public class MainCalcRSAAdvanced {
 

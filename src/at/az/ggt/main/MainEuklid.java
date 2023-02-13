@@ -7,34 +7,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 
 /**
- * <p>
- *     RSA example. Will develop it further from time to time... At the moment, only the extended euclidean algorithm (EEA)
- *     is implemented. This algorithm is used to determine the private key for RSA.
- * </p>
- * <p>
- *     In general, RSA contains the following steps:
- *     <ol>
- *         <li>
- *             Evaluate 2 very very high prime numbers
- *         </li>
- *         <li>
- *             Calculate RSA module (N=p*q)
- *         </li>
- *         <li>
- *             Determine phi(N) = (p-1)*(q-1)
- *         </li>
- *         <li>
- *             Choose a random number &quot;e&quot; that satisfies 1<e<phi(N) and GGT(e,phi(N))=1
- *         </li>
- *         <li>
- *             public key is: {e,N}
- *         </li>
- *         <li>
- *             Calculate private key: Determine a &quot;d&quot; with e * d = 1 mod phi(N). This is the part that the
- *             EEA comes into place! That means: Apply EEA with a=e and b=phi(N). The private key is then: {d,N}.
- *         </li>
- *     </ol>
- * </p>
+ * The Extended Euclidean Algorithm is used to determine the private key for RSA.
  */
 public class MainEuklid {
 
