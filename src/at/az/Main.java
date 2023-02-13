@@ -1,3 +1,5 @@
+package at.az;
+
 import at.az.ggt.EUklidGGTStruct;
 import at.az.ggt.EuklidGGT;
 
