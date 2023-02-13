@@ -7,10 +7,9 @@ import java.util.ArrayList;
 
 public class EuklidGGT {
 
-    private BigInteger a;
-    private BigInteger b;
-    private BigInteger r;
-    private BigInteger cancelAfterXSteps;
+    private final BigInteger a;
+    private final BigInteger b;
+    private final BigInteger cancelAfterXSteps;
 
     public EuklidGGT(BigInteger a, BigInteger b, BigInteger cancelAfterXSteps) {
         this.a = a;
@@ -19,6 +18,8 @@ public class EuklidGGT {
     }
 
     public BigInteger calcGGT(ArrayList<EuklidGGTStruct> euklidStructs){
+        BigInteger a = this.a.max(b);
+        BigInteger b = this.a.min(this.b);
         BigInteger r = new BigInteger("-1");
 
         BigInteger i = new BigInteger("0");
@@ -47,13 +48,6 @@ public class EuklidGGT {
         }
 
         return new BigInteger("1");
-    }
-
-    private static void printBar() {
-        for (int x=0; x<64;x++){
-            System.out.print("-");
-        }
-        System.out.println();
     }
 
     /**
