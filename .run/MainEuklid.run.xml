@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MainEuklid" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="at.az.gcd.main.MainEuklid" />
+    <module name="Crypto" />
+    <option name="PROGRAM_PARAMETERS" value="550037703478843044916990849027 11" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
