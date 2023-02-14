@@ -74,7 +74,7 @@ public class MainEuklid {
         System.out.printf("GCD --> %d%n", gcd);
     }
 
-    private static void printEuklid(ArrayList<EuklidGCDStruct> euklidStructs) {
+    public static void printEuklid(ArrayList<EuklidGCDStruct> euklidStructs) {
         System.out.printf("|%40s|%40s|%40s|%40s|%40s|%40s%n", "a", "b", "q", "r", "x", "y");
         for (int i = 0; i < 247; i++) {
             System.out.print("-");

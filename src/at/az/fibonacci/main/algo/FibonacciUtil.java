@@ -1,12 +1,10 @@
-package at.az.fibonacci;
+package at.az.fibonacci.main.algo;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
 
-public class MainFibonacci {
-    public static void main(String[] args) {
-        int maxLoopCnt = 1000;
-
+public class FibonacciUtil {
+    public static FibonacciTuple getFibonacciTuple(int maxLoopCnt){
         ArrayList<BigInteger> fibonacciNumbers = new ArrayList<>();
         fibonacciNumbers.add(BigInteger.ONE);
         fibonacciNumbers.add(BigInteger.ONE);
@@ -15,7 +13,7 @@ public class MainFibonacci {
             fibonacciNumbers.add(fibonacciNumbers.get(i-2).add(fibonacciNumbers.get(i-1)));
         }
 
-        System.out.printf("Last Fibonacci numbers:%n%s%n%s%n",
+        return new FibonacciTuple(
                 fibonacciNumbers.get(fibonacciNumbers.size()-2),
                 fibonacciNumbers.get(fibonacciNumbers.size()-1)
         );
