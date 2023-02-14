@@ -1,21 +1,21 @@
-package at.az.ggt.algo;
+package at.az.gcd.algo;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
 
-public class EuklidGGT {
+public class EuklidGCD {
 
     private final BigInteger a;
     private final BigInteger b;
     private final BigInteger cancelAfterXSteps;
 
-    public EuklidGGT(BigInteger a, BigInteger b, BigInteger cancelAfterXSteps) {
+    public EuklidGCD(BigInteger a, BigInteger b, BigInteger cancelAfterXSteps) {
         this.a = a;
         this.b = b;
         this.cancelAfterXSteps = cancelAfterXSteps;
     }
 
-    public BigInteger calcGGT(ArrayList<EuklidGGTStruct> euklidStructs){
+    public BigInteger calcGCD(ArrayList<EuklidGCDStruct> euklidStructs){
         BigInteger a = this.a;
         BigInteger b = this.b;
         BigInteger r = new BigInteger("-1");
@@ -26,7 +26,7 @@ public class EuklidGGT {
 
             r = a.mod(b);
 
-            EuklidGGTStruct euklidStruct = new EuklidGGTStruct();
+            EuklidGCDStruct euklidStruct = new EuklidGCDStruct();
             euklidStruct.setA(a);
             euklidStruct.setB(b);
             euklidStruct.setQ(a.divide(b));
@@ -42,7 +42,7 @@ public class EuklidGGT {
         }
 
         if (i.compareTo(cancelAfterXSteps) > 0){
-            System.err.println("CANCELLED AFTER MAX STEPS FOR EUKLID GGT");
+            System.err.println("CANCELLED AFTER MAX STEPS FOR EUKLID GCD");
         }
 
         return new BigInteger("1");
@@ -52,7 +52,7 @@ public class EuklidGGT {
      * See: <a href="https://www.youtube.com/watch?v=nD6psV2vkRU">Christian Spannagel: Erweiterter Euklidischer Algorithmus Teil 3</a>
      * @param str structure list
      */
-    public void calcReverse(ArrayList<EuklidGGTStruct> str) {
+    public void calcReverse(ArrayList<EuklidGCDStruct> str) {
         if (str == null || str.size() == 0){
             throw new IllegalArgumentException("NO STRUCTS OR EMPTY STRUCT RECEIVED IN PARAMETER");
         }

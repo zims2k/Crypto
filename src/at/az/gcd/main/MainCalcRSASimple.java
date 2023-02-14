@@ -1,8 +1,8 @@
-package at.az.ggt.main;
+package at.az.gcd.main;
 
-import at.az.ggt.algo.Utils;
-import at.az.ggt.algo.EuklidGGT;
-import at.az.ggt.algo.EuklidGGTStruct;
+import at.az.gcd.algo.Utils;
+import at.az.gcd.algo.EuklidGCD;
+import at.az.gcd.algo.EuklidGCDStruct;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -28,13 +28,13 @@ public class MainCalcRSASimple {
 
         BigInteger phiN = Utils.getPhiN(p, q);
 
-        EuklidGGT euklidGGT = new EuklidGGT(e, phiN, CANCEL_AFTER_X_STEPS);
+        EuklidGCD euklidGCD = new EuklidGCD(e, phiN, CANCEL_AFTER_X_STEPS);
 
-        ArrayList<EuklidGGTStruct> euklidStructs = new ArrayList<>();
+        ArrayList<EuklidGCDStruct> euklidStructs = new ArrayList<>();
         long t1 = System.currentTimeMillis();
-        euklidGGT.calcGGT(euklidStructs);
+        euklidGCD.calcGCD(euklidStructs);
         long t2 = System.currentTimeMillis();
-        euklidGGT.calcReverse(euklidStructs);
+        euklidGCD.calcReverse(euklidStructs);
         long t3 = System.currentTimeMillis();
 
         BigInteger d = euklidStructs.get(0).getX();

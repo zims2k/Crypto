@@ -1,4 +1,4 @@
-package at.az.ggt.algo;
+package at.az.gcd.algo;
 
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
@@ -15,17 +15,17 @@ public class Utils {
 
     public static BigInteger deriveE(BigInteger phiN, boolean debug) throws NoSuchAlgorithmException {
         if (debug){
-            System.out.printf(">> DEBUG: Finding an e with 1 < e < phi(N) and ggT(e, phi(n)) = 1, whereby phi(N)=%s%n", phiN);
+            System.out.printf(">> DEBUG: Finding an e with 1 < e < phi(N) and gcd(e, phi(n)) = 1, whereby phi(N)=%s%n", phiN);
         }
 
         int bitLength = phiN.bitLength();
         SecureRandom random = SecureRandom.getInstanceStrong();
 
-        BigInteger ggT = BigInteger.ZERO;
+        BigInteger gcd = BigInteger.ZERO;
         BigInteger probableE = null;
 
         long tries = 0;
-        while(!ggT.equals(BigInteger.ONE)) {
+        while(!gcd.equals(BigInteger.ONE)) {
             tries++;
 
             probableE = new BigInteger(bitLength, random);
@@ -36,11 +36,11 @@ public class Utils {
                 }
             }
 
-            EuklidGGT euklidGGT = new EuklidGGT(probableE, phiN, CANCEL_AFTER_X_STEPS);
-            ggT = euklidGGT.calcGGT(new ArrayList<>());
+            EuklidGCD euklidGCD = new EuklidGCD(probableE, phiN, CANCEL_AFTER_X_STEPS);
+            gcd = euklidGCD.calcGCD(new ArrayList<>());
 
             if (debug){
-                System.out.printf(">> DEBUG: ggt(e,phi(N))=%s, whereby e=%s%n", ggT, probableE);
+                System.out.printf(">> DEBUG: gcd(e,phi(N))=%s, whereby e=%s%n", gcd, probableE);
             }
         }
 

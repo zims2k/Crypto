@@ -1,8 +1,8 @@
-package at.az.ggt.algo;
+package at.az.gcd.algo;
 
 import java.math.BigInteger;
 
-public class EuklidGGTStruct {
+public class EuklidGCDStruct {
     BigInteger a;
     BigInteger b;
     BigInteger q;

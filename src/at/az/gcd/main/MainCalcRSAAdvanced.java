@@ -1,6 +1,6 @@
-package at.az.ggt.main;
+package at.az.gcd.main;
 
-import at.az.ggt.algo.Utils;
+import at.az.gcd.algo.Utils;
 
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
@@ -23,7 +23,7 @@ import java.security.SecureRandom;
  *             Determine phi(N) = (p-1)*(q-1)
  *         </li>
  *         <li>
- *             Choose a random number &quot;e&quot; that satisfies 1<e<phi(N) and GGT(e,phi(N))=1
+ *             Choose a random number &quot;e&quot; that satisfies 1<e<phi(N) and GCD(e,phi(N))=1
  *         </li>
  *         <li>
  *             public key is: {e,N}
