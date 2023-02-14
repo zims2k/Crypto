@@ -2,7 +2,7 @@
   <configuration default="false" name="MainEuklidFibonacci" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="MAIN_CLASS_NAME" value="at.az.gcd.main.MainEuklidFibonacci" />
     <module name="Crypto" />
-    <option name="PROGRAM_PARAMETERS" value="100" />
+    <option name="PROGRAM_PARAMETERS" value="1000" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="at.az.gcd.main.*" />
